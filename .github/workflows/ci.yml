@@ -3,8 +3,14 @@ name: First CI
 on: push
 
 jobs:
-  greet:
+  check-website:
     runs-on: ubuntu-latest
     steps:
+      - name: Download repository code
+        uses: actions/checkout@v4
+
       - name: Print a message
         run: echo "Hello from CI!"
+
+      - name: Check website file
+        run: test -f index.html
